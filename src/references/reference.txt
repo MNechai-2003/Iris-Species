@@ -1,0 +1,3 @@
+https://www.kaggle.com/code/benhamner/python-data-visualizations
+https://www.kaggle.com/code/abdmental01/iris-flower-eda-ml-beginner
+https://www.kaggle.com/code/aathikm/wine-quality-eda-data-vis-model-creation
