@@ -1,0 +1,12 @@
+optuna
+pandas
+seaborn
+plotly
+dotenv
+scikit-learn
+xgboost
+statsmodels
+scipy
+kagglehub
+jinja2
+nbformat
