@@ -24,7 +24,6 @@ def generate_top_features(
             col2 = numeric_features[j]
 
             X_processed[f'{col1}/{col2}'] = X_processed[col1] / (X_processed[col2] + 1e-8)
-            X_processed[f'{col2}/{col1}'] = X_processed[col2] / (X_processed[col1] + 1e-8)
             X_processed[f'{col1}*{col2}'] = X_processed[col1] * X_processed[col2]
 
     X_for_selection = X_processed.replace([np.inf, -np.inf], np.nan).fillna(0)
