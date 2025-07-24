@@ -55,3 +55,25 @@ def generate_top_features(
 
     return X_train_transformed, y_train, X_test_transformed, y_test
 
+
+def generate_new_features(
+    X: pd.DataFrame,
+    y
+) -> Tuple[pd.DataFrame, pd.Series]: # Changed y's type hint as it might be np.ndarray initially
+    """Add new features to the dataset: PetalRatio and SepalRatio."""
+
+    # Crucial fix: Ensure y gets the same index as X when converted to Series
+    if isinstance(y, np.ndarray):
+        y = pd.Series(y, index=X.index) # Pass X.index here!
+    # If y is already a Series but its index doesn't match X, you might also want to reindex it:
+    elif not y.index.equals(X.index):
+        y = y.loc[X.index] # Reindex y to match X's index. This handles cases where y is already a Series but with a different index.
+
+    X_new = X.copy()
+
+    # Calculate PetalRatio and SepalRatio
+    X_new['PetalRatio'] = X_new['PetalLengthCm'] / (X_new['PetalWidthCm'] + 1e-8)
+    X_new['SepalRatio'] = X_new['SepalLengthCm'] / (X_new['SepalWidthCm'] + 1e-8)
+
+    return X_new, y
+
