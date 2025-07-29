@@ -70,6 +70,7 @@ def generate_new_features(
         y = y.loc[X.index] # Reindex y to match X's index. This handles cases where y is already a Series but with a different index.
 
     X_new = X.copy()
+    y.name = 'target'
 
     # Calculate PetalRatio and SepalRatio
     X_new['PetalRatio'] = X_new['PetalLengthCm'] / (X_new['PetalWidthCm'] + 1e-8)

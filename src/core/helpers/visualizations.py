@@ -45,7 +45,8 @@ def plot_distributions_of_feature_by_classes(
         for i in range(1, 4):
             plt.axvline(mean_value + i * std_value, color=class_color_map[class_name], linestyle=':', lw=1)
             plt.axvline(mean_value - i * std_value, color=class_color_map[class_name], linestyle=':', lw=1)
-            if class_name == unique_classes[2]:
+            # if class_name == unique_classes[2]:
+            if class_name == 'virginica':
                 test_position = plt.ylim()[1] * 0.4
             else:
                 test_position = plt.ylim()[1] * 0.85
